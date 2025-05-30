@@ -108,6 +108,10 @@ const score1El = document.getElementById('score--0');
 
 const diceEl =  document.querySelector(".dice");
 
+const buttonNew = document.querySelector(".btn--new")
+const buttonRoll = document.querySelector(".btn--roll")
+const buttonHold = document.querySelector(".btn--hold")
+
 
 
 
@@ -118,6 +122,21 @@ score1El.textContent =  0 ;
 diceEl.classList.add("hidden");
 
 
+// rolling dice funtinality 
+
+buttonRoll.addEventListener('click',function(){
+    // creating a random value 
+    const  dice = Math.trunc(Math.random()*6)+1;
+    
+    //display the dice 
+    
+    // diceEl.classList.remove('hidden');
+    diceEl.classList.remove('hidden');
+
+    diceEl.src = `dice-${dice}.png`;
+     
+
+})
 
 
 
