@@ -155,8 +155,11 @@ const switchPlayer = function(){
 // rolling dice funtinality 
 
 btnRoll.addEventListener("click",function(){
+    if(playing){
+
+   
     const dice =   Math.trunc(Math.random()*6)+1;
-    console.log(dice);
+    // console.log(dice);
 //    display dice 
     diceEl.classList.remove('hidden')
     diceEl.src =(`dice-${dice}.png`)
@@ -178,11 +181,16 @@ btnRoll.addEventListener("click",function(){
 
 
     }
+     }
 })
 
 btnHold.addEventListener('click',function(){
+    if(playing) {
 
-    console.log("hold button ")
+    
+
+
+    // console.log("hold button ")
     
     scores [activePlayer] += currentScore;
 
@@ -192,6 +200,10 @@ btnHold.addEventListener('click',function(){
 
     if (scores[activePlayer] >= 20) {
 
+
+        playing = false;
+             diceEl.classList.add('hidden')
+
         document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
         document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
         
@@ -199,6 +211,6 @@ btnHold.addEventListener('click',function(){
            switchPlayer();
 
     }
-
+}
  
 })
